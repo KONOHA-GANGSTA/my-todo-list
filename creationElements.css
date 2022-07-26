@@ -1,5 +1,4 @@
 .create{
-    padding-top: 15px;
     display:flex;
 }
 
@@ -266,7 +265,7 @@ button{
 
 .deadlineControls input{
     height: 1em;
-    width: 60%;
+    width: 65%;
     margin: 6px;
     margin-left: 10px;
 }
