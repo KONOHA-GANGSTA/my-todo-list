@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="eyesStyle.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="creationElements.css">
+    <script src="eyes.js" defer></script>
+    <script src="script.js" defer></script>
+    <title>TO DO LIST</title>
+</head>
+<body>
+    
+    <div style="display: flex; justify-content:center; min-width: 600px;">
+    <div style="width: 100px;display: flex; justify-content:center">
+    <div style="width: 100px; height: 10px; position:absolute; top: 8px; background-color:black"></div>
+    <div style="width: 10px; height:120px; background-color: black"></div>
+    </div>
+    <div id="leftO" class="O"></div>
+    <div style="height: 120px; width: 100px;"></div>
+    <div style="height: 120px; width:10px; background-color:black"></div>
+    <div id="forD"></div>
+    <div id="half-circle"></div>
+    <div id="rightO" class="O"></div>
+    </div>
+    <div style="display: flex; justify-content:center; font-size: 50px; letter-spacing: 20px;"><B>L I S T</B></div>
+    <div class="strip">
+        <div>Create task</div>
+        <div>Calendar</div>
+    </div>
+
+    <div class="create">
+        <div class="leftCol">
+    <div class="createTask grow">
+        <div><label>
+        <input type="text" id = "taskInput" placeholder="Your task...">
+        <input type="button" value="Create" id = "taskButton" class="taskButton">
+        </label>
+        </div>
+        <div class="importanceSet">
+            <span>Importance: </span><div class="arrowLeft done"></div><span>LOW</span><div class="arrowRight arrowRightHover"></div>
+        </div>
+        <div class="deadlineSign">
+            <div class="arrowUp"></div><span>SET DEADLINE</span><div class="arrowUp"></div>
+        </div>
+    </div>
+    <div class="globalMeter">
+        <span>NO TASKS</span>
+    </div>
+        </div>
+    <div class="taskList">
+        
+    </div>
+    </div>
+
+</body>
+</html>

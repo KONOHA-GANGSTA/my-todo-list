@@ -1,0 +1,22 @@
+.strip{
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.strip div{
+    color: white;
+    font-size: 2em;
+    padding-left: 3em;
+    padding-right: 3em;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    border: 5px solid black;
+}
+
+.strip div:hover{
+    background-color: white;
+    color: black;
+    border: 5px solid black;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}

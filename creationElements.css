@@ -1,0 +1,306 @@
+.create{
+    padding-top: 15px;
+    display:flex;
+}
+
+input{
+    height: 2em;
+    margin: 10px;
+    font-size: 2em;
+}
+
+.createTask{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border: 5px solid black;
+    flex-direction: column;
+}
+
+.taskList{
+    width:50%;
+}
+
+.task{
+    border: 5px solid black;
+    margin: 15px;
+    font-size: 2em;
+    position: relative;
+    word-break:normal;
+    display: flex;
+}
+
+.taskButton{
+    background-color: black;
+    color: white;
+}
+
+.taskButton:hover{
+    background-color: white;
+    color: black;
+}
+
+button{
+    background-color: black;
+    color: white;
+}
+
+.doneButton{
+    margin:5px;
+    height: 30px;
+}
+
+.taskField{
+    width: 80%;
+    border-right: solid 2px black;
+    overflow-x: auto;
+    text-align: center;
+}
+
+.done{
+    opacity: 0.2;
+}
+
+.taskField::-webkit-scrollbar{
+    height: 7px;
+}
+
+.taskField::-webkit-scrollbar-thumb{
+    background-color: black;
+}
+
+.controlField{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.antiHoverButtons{
+    margin:5px;
+    height: 30px;
+}
+
+.antiHoverButtons:hover{
+    background-color: white;
+    color: black;
+}
+
+.editInput{
+    width:100%;
+}
+
+.globalMeter{
+    width: 100%;
+    border: 5px solid black;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.leftCol{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+
+.globalMeter span{
+    font-size: 6em;
+}
+
+.importanceSet{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.importanceSet span{
+    font-size: 2.3em;
+    font-weight: bold;
+}
+
+.arrowLeft{
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid black;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.arrowRight{
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid black;
+    margin-left: 30px;
+}
+
+.importanceMark{
+    font-size: 18px;
+    text-align: center;
+}
+
+.arrowLeftHover{
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid black;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.arrowLeftHover:hover{
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid rgb(112, 112, 112);
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.arrowRightHover{
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid black;
+    margin-left: 30px;
+}
+
+.arrowRightHover:hover{
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid rgb(112,112,112);
+    margin-left: 30px;
+}
+
+.importanceEdit{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.importanceEdit span{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.deadlineSign{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    font-size: 2.3em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.arrowUp{
+    width: 0;
+    height: 0;
+    border-bottom: 20px solid black;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.arrowUpHover{
+    width: 0;
+    height: 0;
+    border-bottom: 20px solid rgb(112, 112, 112);
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.arrowDown{
+    width: 0;
+    height: 0;
+    border-top: 20px solid black;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.arrowDownHover{
+    width: 0;
+    height: 0;
+    border-top: 20px solid rgb(112, 112, 112);
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.deadlineControls{
+    width : 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.deadlineControls div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 10%;
+    margin-left: 10px;
+    margin-right: 10px;
+    vertical-align: middle;
+    line-height: 50px;
+    margin-bottom: 5px;
+}
+
+.deadlineControls input{
+    height: 1em;
+    width: 60%;
+    margin: 6px;
+    margin-left: 10px;
+}
+
+.deadlineControls span{
+    font-size: 2.2em;
+}
+
+.deadlineButton{
+    width:17%;
+    height: 10%;
+}
+
+.deadlineButton:hover{
+    background-color: grey;
+}
+
+@keyframes rotateArrows {
+    from {
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes addTask {
+    from {
+        transform: translateX(-200px);
+        opacity : 0 ;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
