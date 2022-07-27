@@ -249,6 +249,12 @@ button{
     width : 100%;
     display: flex;
     justify-content: center;
+    transition: 1s;
+}
+
+.popAnimation{
+    transform: scale(0%);
+    height: 0;
 }
 
 .deadlineControls div{

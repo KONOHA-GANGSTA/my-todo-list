@@ -5,7 +5,6 @@ let taskInput = document.querySelector("#taskInput");
 let taskButton = document.querySelector("#taskButton");
 let isDedline = true;
 
-
 let keys = Object.keys(localStorage);
 for(let key of keys.sort()) {
     let storedTask = JSON.parse(localStorage.getItem(key));
@@ -14,6 +13,7 @@ for(let key of keys.sort()) {
     addTask(storedTask);
 }
 globalMeterRefresh();
+
 
 
 taskButton.addEventListener("click",()=>{
@@ -349,6 +349,7 @@ function setDeadlineArrows(){
 
         deadlineSwitch.childNodes[1].addEventListener("animationend",()=>{
             setDeadlineArrows();
+            document.querySelector(".createTask").querySelector(".deadlineControls").classList.remove("popAnimation");
         })
     })
 }
@@ -358,6 +359,7 @@ function makeDeadlineControls(){
     let defaultDeadline = new Date();
     let deadlineControls = document.createElement("DIV");
     deadlineControls.classList.add("deadlineControls");
+    deadlineControls.classList.add("popAnimation");
     let dayInput = document.createElement("input"); 
     dayInput.maxLength=2;
     dayInput.value = defaultDeadline.getDate();
