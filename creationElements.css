@@ -27,6 +27,7 @@ input{
     position: relative;
     word-break:normal;
     display: flex;
+    transition:1s;
 }
 
 .taskButton{
@@ -305,7 +306,7 @@ button{
     }
     to{
         transform: translateX(0);
-        opacity: 1;
+        
     }
 }
 
