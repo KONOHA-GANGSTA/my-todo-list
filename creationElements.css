@@ -1,5 +1,6 @@
 .create{
     display:flex;
+    transition: 0.5s;
 }
 
 input{

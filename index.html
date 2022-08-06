@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+    <meta name="viewport" content="width=device+width, initial-scale=1.0">.
     <link rel="stylesheet" href="eyesStyle.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="creationElements.css">
     <link rel="stylesheet" href="filterStyle.css">
+    <link rel="stylesheet" href="calendar.css">
     <script src="eyes.js" defer></script>
     <script src="script.js" defer></script>
     <script src="filter.js" defer></script>
+    <script src="calendar.js" defer></script>
+    <script src="function.js" defer></script>
     <title>MY TO DO LIST</title>
 </head>
 <body>
@@ -41,7 +44,7 @@
         <span>HIGH</span>
     </div>
 
-    <div class="create">
+    <div class="create" style="display:''">
         <div class="leftCol">
     <div class="createTask grow">
         <div><label>
@@ -63,6 +66,38 @@
     <div class="taskList">
         
     </div>
+    </div>
+
+    <div class="calendar hiddenCalendar" style="display: none;">
+        <div class="todayColumn">
+            <div class="today">
+            <span style="font-size: 4em;">
+                TODAY
+            </span>
+            <span style="font-size: 3em;">
+                Friday
+            </span>
+            <span style="font-size: 6em; font-weight: bold;">
+                4’th
+            </span>
+            <span style="font-size: 4em;">
+                July
+            </span>
+            </div>
+            <div class="today" style="font-size: 2em;">
+                No tasks for today
+            </div>
+        </div>
+        <div class="calendarColumn">
+            <div class="calendarPage">
+                <div class="calendarControls">
+                <div class="arrowLeft done"></div>
+                <span>August</span>
+                <span>2022</span>
+                <div class="arrowRightHover"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>

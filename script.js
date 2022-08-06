@@ -24,6 +24,7 @@ taskButton.addEventListener("click",()=>{
     importanceValue.innerText = "LOW";
     importanceRightArrow.classList.remove("done");
     if(isDedline) document.querySelector(".createTask").querySelector(".deadlineSign").childNodes[1].click();
+    refreshTodayStatus();
 })
 
 function createTask(text,importance = "low",date = null,done = false){
@@ -208,7 +209,8 @@ function addTask(task){
         allTasks.delete(task.id);
         newTask.remove();
         globalMeterRefresh();
-        if(!allTasks.size) document.querySelector(".globalMeter span").innerHTML = "NO TASKS"
+        if(!allTasks.size) document.querySelector(".globalMeter span").innerHTML = "NO TASKS";
+        refreshTodayStatus();
     })
 
     newTask.classList.add("task");
@@ -402,17 +404,28 @@ function makeMonth(num){
 
 function makeNumFromMonth(num){
     switch(num){
+        case "January":
         case "Jan." : return 0;
+        case "February":
         case "Feb." : return 1;
+        case "March":
         case "Mar." : return 2;
+        case "April":
         case "Apr." : return 3;
-        case "May" : return 4;
+        case "May"  : return 4;
+        case "June" :
         case "Jun." : return 5;
+        case "July" :
         case "Jul." : return 6;
+        case "August":
         case "Aug." : return 7;
+        case "September":
         case "Sep." : return 8;
+        case "October":
         case "Oct." : return 9;
+        case "November":
         case "Nov." : return 10;
+        case "December":
         case "Dec." : return 11;
     }
 }

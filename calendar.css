@@ -1,0 +1,75 @@
+.calendar{
+    display: flex;
+    transition: 0.5s;
+}
+
+.hiddenCalendar{
+    transform:translateX(+600px);
+    opacity: 0;
+}
+
+.hiddenCreator{
+    transform:translateX(-400px);
+    opacity: 0;
+}
+
+.todayColumn{
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    margin-left: 10px;
+    margin-right: 10px;
+    flex-direction: column;
+    text-align: center;
+}
+
+.today{
+    border: 5px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5px;
+    word-break: normal;
+}
+
+.calendarColumn{
+    width: 65%;
+    margin: 5px;
+}
+
+.calendarPage{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.calendarPage table{
+    width: 100%;
+    text-align: center;
+    height: 280px;
+    font-size: 2em;
+}
+
+.calendarPage td{
+    border: 3px solid white;
+}
+
+.calendarPage td:hover{
+    border: 3px solid grey;
+}
+
+.calendarControls{
+    display: flex;
+    justify-content: center;
+}
+
+.calendarControls span{
+    font-size: 2em;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.activeCell{
+    background-color: grey;
+}
