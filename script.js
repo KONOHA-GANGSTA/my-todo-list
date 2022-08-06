@@ -25,6 +25,7 @@ taskButton.addEventListener("click",()=>{
     importanceRightArrow.classList.remove("done");
     if(isDedline) document.querySelector(".createTask").querySelector(".deadlineSign").childNodes[1].click();
     refreshTodayStatus();
+    markPassedDays();
 })
 
 function createTask(text,importance = "low",date = null,done = false){

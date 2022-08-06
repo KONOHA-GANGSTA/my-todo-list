@@ -114,6 +114,7 @@ button{
     margin: 10px;
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .importanceSet span{
@@ -201,6 +202,7 @@ button{
     font-size: 2.3em;
     margin-bottom: 20px;
     font-weight: bold;
+    margin-top: 50px;
 }
 
 .arrowUp{

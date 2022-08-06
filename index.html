@@ -13,7 +13,6 @@
     <script src="script.js" defer></script>
     <script src="filter.js" defer></script>
     <script src="calendar.js" defer></script>
-    <script src="function.js" defer></script>
     <title>TO DO LIST</title>
 </head>
 <body>
@@ -53,7 +52,7 @@
         </label>
         </div>
         <div class="importanceSet">
-            <span>Importance: </span><div class="arrowLeft done"></div><span>LOW</span><div class="arrowRight arrowRightHover"></div>
+            <span style="position:absolute; left:5%;">Importance: </span><div class="arrowLeft done" style="position:absolute; left:35%;"></div><span style="position:absolute; left:58%;">LOW</span><div class="arrowRight arrowRightHover"style="position:absolute; right:5%;"></div>
         </div>
         <div class="deadlineSign">
             <div class="arrowUp"></div><span>SET DEADLINE</span><div class="arrowUp"></div>
@@ -69,7 +68,7 @@
     </div>
 
     <div class="calendar hiddenCalendar" style="display: none;">
-        <div class="todayColumn">
+        <div class="todayColumn" style="max-height: 390px;">
             <div class="today">
             <span style="font-size: 4em;">
                 TODAY
@@ -91,11 +90,13 @@
         <div class="calendarColumn">
             <div class="calendarPage">
                 <div class="calendarControls">
-                <div class="arrowLeft done"></div>
+                <div class="arrowLeft done" style="position:absolute; left:25%;"></div>
                 <span>August</span>
                 <span>2022</span>
-                <div class="arrowRightHover"></div>
+                <div class="arrowRightHover" style="position:absolute; right:25%;"></div>
                 </div>
+            </div>
+            <div class="tasksForToday">
             </div>
         </div>
     </div>

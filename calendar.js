@@ -80,6 +80,7 @@ function makeCalendar(month = new Date().getMonth(),year = new Date().getFullYea
     let page = document.createElement("TABLE");
     page.border=1;
     let day = new Date(year,month,2-new Date(year,month,1).getDay()).getDate();
+    if(new Date(year,month,1).getDay() == 0) day = new Date(year,month,-5).getDate();
     let tableHeader = document.createElement("TR");
     let days = ["Mon.","Tue.","Wed.","Thu.","Fri.","Sat.","Sun."];
     for(let i=0; i<7;i++){
@@ -97,6 +98,13 @@ function makeCalendar(month = new Date().getMonth(),year = new Date().getFullYea
                 try{document.querySelector("TABLE").querySelector(".activeCell").classList.remove("activeCell");}
                 catch{console.log("no selection")}
                 dayBlock.classList.add("activeCell");
+                document.querySelector(".tasksForToday").innerHTML="";
+                for(let value of allTasks.values()){
+                    if(new Date(value.date).getFullYear()== +document.querySelector(".calendarControls").querySelectorAll("SPAN")[1].innerText &
+                    new Date(value.date).getMonth() == makeNumFromMonth(document.querySelector(".calendarControls").querySelectorAll("SPAN")[0].innerText) &
+                    new Date(value.date).getDate() == +dayBlock.innerText)
+                    addDayTask(value);
+                }
             }
             week.appendChild(dayBlock);
         }
@@ -105,6 +113,10 @@ function makeCalendar(month = new Date().getMonth(),year = new Date().getFullYea
     if((new Date(year,month,1).getDay() == 1) & (new Date(year,month,day)>=new Date(year,month+1,1))) break;
     }
 return page;
+}
+
+function underlineDay(day){
+    day.classList.add("importantDay");
 }
 
 function markPassedDays(){
@@ -117,8 +129,15 @@ function markPassedDays(){
                 document.querySelector("TABLE").childNodes[i].childNodes[j].classList.add("done");
             else if(new Date(+document.querySelector(".calendarControls").querySelectorAll("SPAN")[1].innerText,makeNumFromMonth(document.querySelector(".calendarControls").querySelectorAll("SPAN")[0].innerText),+document.querySelector("TABLE").childNodes[i].childNodes[j].innerText) < new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate()))
                 document.querySelector("TABLE").childNodes[i].childNodes[j].classList.add("done");
-            else if (+document.querySelector("TABLE").childNodes[i].childNodes[j].innerText == new Date().getDate() & makeNumFromMonth(document.querySelector(".calendarControls").querySelectorAll("SPAN")[0].innerText)==new Date().getMonth() & newMonthStarted)
+            else if (+document.querySelector("TABLE").childNodes[i].childNodes[j].innerText == new Date().getDate() & makeNumFromMonth(document.querySelector(".calendarControls").querySelectorAll("SPAN")[0].innerText)==new Date().getMonth()& +document.querySelector(".calendarControls").querySelectorAll("SPAN")[1].innerText == new Date().getFullYear() & newMonthStarted)
             document.querySelector("TABLE").childNodes[i].childNodes[j].style.border="5px solid black";
+                for(let value of allTasks.values()){
+                    if(new Date(value.date).getFullYear()== +document.querySelector(".calendarControls").querySelectorAll("SPAN")[1].innerText &
+                    new Date(value.date).getMonth() == makeNumFromMonth(document.querySelector(".calendarControls").querySelectorAll("SPAN")[0].innerText) &
+                    new Date(value.date).getDate() == +document.querySelector("TABLE").childNodes[i].childNodes[j].innerText){
+                    document.querySelector("TABLE").childNodes[i].childNodes[j].classList.add("importantDay");
+                }
+                }
         }
     }
 }
@@ -171,6 +190,27 @@ document.querySelector(".calendarControls").querySelectorAll("DIV")[0].addEventL
         document.querySelector(".calendarControls").querySelectorAll("DIV")[0].classList.remove("arrowLeftHover");
     }
 })
+
+//tasks
+
+function addDayTask(task){
+    let newTask = document.createElement('div');
+    let taskField = document.createElement('div');
+    let importance = document.createElement("div");
+    taskField.style.width="100%";
+    taskField.style.borderRight="";
+    importance.innerHTML = "IMPORTANCE: " + task.importance + "<hr>";
+    importance.classList.add("importanceMark");
+
+    newTask.classList.add("task");
+    taskField.innerHTML = task.text;
+    taskField.prepend(importance);
+    taskField.classList.add("taskField");
+    newTask.appendChild(taskField);
+    newTask.style.animation = "addTask 1s";
+    if(task.status) newTask.classList.add("done");
+    document.querySelector(".tasksForToday").appendChild(newTask);
+}
 
 
 

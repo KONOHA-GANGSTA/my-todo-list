@@ -51,16 +51,17 @@
 }
 
 .calendarPage td{
-    border: 3px solid white;
+    border: 5px solid white;
 }
 
 .calendarPage td:hover{
-    border: 3px solid grey;
+    border: 5px solid grey !important;
 }
 
 .calendarControls{
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .calendarControls span{
@@ -72,4 +73,16 @@
 
 .activeCell{
     background-color: grey;
+    border-radius: 0 !important;
+}
+
+.importantDay{
+    border: dashed 5px black !important;
+    border-radius: 50%;
+}
+
+.tasksForToday{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
