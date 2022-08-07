@@ -103,10 +103,14 @@ function getFilterParams(){
 }
 
 function filterTodaysTask(){
+    if(document.querySelector(".tasksForToday").childNodes.length > 0){
     document.querySelector(".tasksForToday").childNodes.forEach(element=>{
         if(getFilterParams().includes(element.querySelector(".importanceMark").innerText.slice(12,44)))
             element.style.display="";
         else element.style.display="none";
         if(getFilterParams().includes("UNDONE") & element.classList.contains("done")) element.style.display="none";
+        else if(getFilterParams().includes("UNDONE") & element.style.display=="none")
+        element.style.display="";
     })
+}
 }

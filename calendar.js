@@ -145,6 +145,14 @@ function markPassedDays(){
                     if(value.status & getFilterParams().includes("UNDONE"))
                     document.querySelector("TABLE").childNodes[i].childNodes[j].classList.remove("importantDay");
                 }
+
+                if(new Date(value.date).getFullYear()== +document.querySelector(".calendarControls").querySelectorAll("SPAN")[1].innerText &
+                    new Date(value.date).getMonth() == makeNumFromMonth(document.querySelector(".calendarControls").querySelectorAll("SPAN")[0].innerText) &
+                    new Date(value.date).getDate() == +document.querySelector("TABLE").childNodes[i].childNodes[j].innerText &
+                    getFilterParams().includes("UNDONE")){
+                        document.querySelector("TABLE").childNodes[i].childNodes[j].classList.add("importantDay");
+                    }
+
                 }
         }
     }
