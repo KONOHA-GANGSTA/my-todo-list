@@ -2,6 +2,7 @@ document.querySelector(".filter").childNodes.forEach((element)=>{
     if(element.nodeName=="SPAN"){
         element.onclick = () =>{
             element.classList.contains("filterSelected")? element.classList.remove("filterSelected") : element.classList.add("filterSelected");
+            if(element.innerText=="DEADLINES" & document.querySelector(".create").classList.contains("hiddenCreator")) element.classList.remove("filterSelected");
             switch(element.innerText){
                 case "UNDONE":{
                     for(let value of allTasks.values()){
@@ -39,6 +40,8 @@ document.querySelector(".filter").childNodes.forEach((element)=>{
                     break;
                 }
             }
+            markPassedDays();
+            filterTodaysTask();
         }
     }
 })
@@ -82,4 +85,28 @@ function filterTasksByImportance(){
 function resetTaskList(){
     document.querySelector(".taskList").innerHTML="";
     Array.from(allTasks.values()).forEach(elem=>addTask(elem));
+}
+
+function resetFilter(){
+    document.querySelectorAll(".filter SPAN").forEach(element => {
+        if(element.classList.contains("filterSelected")) element.click();
+    })
+}
+
+function getFilterParams(){
+    let params = [];
+    document.querySelectorAll(".filter SPAN").forEach(element =>{
+        if(element.classList.contains("filterSelected")) params.push(element.innerText);
+    })
+    if(!params.length) params= ["LOW","MEDIUM","HIGH"];
+    return params;
+}
+
+function filterTodaysTask(){
+    document.querySelector(".tasksForToday").childNodes.forEach(element=>{
+        if(getFilterParams().includes(element.querySelector(".importanceMark").innerText.slice(12,44)))
+            element.style.display="";
+        else element.style.display="none";
+        if(getFilterParams().includes("UNDONE") & element.classList.contains("done")) element.style.display="none";
+    })
 }

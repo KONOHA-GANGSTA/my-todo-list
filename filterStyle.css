@@ -20,15 +20,18 @@
   box-shadow: inset 0 0 0 2em black;
   color: white;
   border-radius: 30%;
+  cursor: pointer;
 }
 
 .filter span:active {
   box-shadow: inset 0 0 0 2em white;
   color: black;
+  cursor: pointer;
 }
 
 .filterSelected{
   background-color: black;
   color: white;
   border-radius: 30%;
+  cursor: pointer;
 }

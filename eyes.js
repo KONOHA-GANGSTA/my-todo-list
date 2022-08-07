@@ -1,3 +1,5 @@
+let yScrolled = 0;
+
 function getOffset(el) {
     const rect = el.getBoundingClientRect();
     return {
@@ -50,6 +52,7 @@ rightEye.style.top=getOffset(rightO).top+45+"px";
 rightO.appendChild(rightEye);
 
 window.addEventListener("mousemove",(eve)=>{
+if(yScrolled < 25){
     if(eyeCordsCheck(getOffset(leftO).left+60,getOffset(leftO).top+60,45,eve.clientX,eve.clientY)){
         leftEye.style.left=eve.clientX - 15 + "px";
         leftEye.style.top=eve.clientY - 15 + "px";
@@ -65,4 +68,15 @@ window.addEventListener("mousemove",(eve)=>{
         rightEye.style.left=eyeCords(getOffset(rightO).left+60,getOffset(rightO).top+60,45,eve.clientX,eve.clientY).left -15 +"px";
         rightEye.style.top=eyeCords(getOffset(rightO).left+60,getOffset(rightO).top+60,45,eve.clientX,eve.clientY).top -15 +"px";
     }
+    }
+    else {
+        leftEye.style.left=getOffset(leftO).left+45+"px";
+        leftEye.style.top=getOffset(leftO).top+80+"px";
+        rightEye.style.left=getOffset(rightO).left+45+"px";
+        rightEye.style.top=getOffset(rightO).top+80+"px";
+    }
 })
+
+window.addEventListener('scroll', function() {
+    yScrolled = pageYOffset;
+  });

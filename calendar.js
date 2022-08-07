@@ -10,11 +10,13 @@ document.querySelector(".create").addEventListener("transitionend",(event)=>{
 document.querySelector(".strip").querySelectorAll("DIV")[1].addEventListener("click", ()=>{
     document.querySelector(".create").classList.add("hiddenCreator");
     document.querySelector(".calendar").style.display="";
+    resetFilter();
 })
 
 document.querySelector(".strip").querySelectorAll("DIV")[0].addEventListener("click", ()=>{
     document.querySelector(".calendar").classList.add("hiddenCalendar");
     document.querySelector(".create").style.display="";
+    resetFilter();
 })
 
 document.querySelector(".calendar").addEventListener("transitionend",(event)=>{
@@ -97,6 +99,7 @@ function makeCalendar(month = new Date().getMonth(),year = new Date().getFullYea
             dayBlock.onclick = ()=>{
                 try{document.querySelector("TABLE").querySelector(".activeCell").classList.remove("activeCell");}
                 catch{console.log("no selection")}
+                if(dayBlock.classList.contains("done")) return;
                 dayBlock.classList.add("activeCell");
                 document.querySelector(".tasksForToday").innerHTML="";
                 for(let value of allTasks.values()){
@@ -104,6 +107,7 @@ function makeCalendar(month = new Date().getMonth(),year = new Date().getFullYea
                     new Date(value.date).getMonth() == makeNumFromMonth(document.querySelector(".calendarControls").querySelectorAll("SPAN")[0].innerText) &
                     new Date(value.date).getDate() == +dayBlock.innerText)
                     addDayTask(value);
+                    filterTodaysTask();
                 }
             }
             week.appendChild(dayBlock);
@@ -123,6 +127,7 @@ function markPassedDays(){
     let newMonthStarted = false;
     for(let i = 1; i<document.querySelector("TABLE").childNodes.length; i++){
         for(let j =0; j<7;j++){
+            document.querySelector("TABLE").childNodes[i].childNodes[j].classList.remove("importantDay");
             if(document.querySelector("TABLE").childNodes[i].childNodes[j].innerText=="1")
                 newMonthStarted = !newMonthStarted;
             if(!newMonthStarted) 
@@ -134,8 +139,11 @@ function markPassedDays(){
                 for(let value of allTasks.values()){
                     if(new Date(value.date).getFullYear()== +document.querySelector(".calendarControls").querySelectorAll("SPAN")[1].innerText &
                     new Date(value.date).getMonth() == makeNumFromMonth(document.querySelector(".calendarControls").querySelectorAll("SPAN")[0].innerText) &
-                    new Date(value.date).getDate() == +document.querySelector("TABLE").childNodes[i].childNodes[j].innerText){
+                    new Date(value.date).getDate() == +document.querySelector("TABLE").childNodes[i].childNodes[j].innerText &
+                    getFilterParams().includes(value.importance)){
                     document.querySelector("TABLE").childNodes[i].childNodes[j].classList.add("importantDay");
+                    if(value.status & getFilterParams().includes("UNDONE"))
+                    document.querySelector("TABLE").childNodes[i].childNodes[j].classList.remove("importantDay");
                 }
                 }
         }

@@ -52,10 +52,12 @@
 
 .calendarPage td{
     border: 5px solid white;
+    cursor: pointer;
 }
 
 .calendarPage td:hover{
     border: 5px solid grey !important;
+    cursor: pointer;
 }
 
 .calendarControls{
@@ -74,6 +76,7 @@
 .activeCell{
     background-color: grey;
     border-radius: 0 !important;
+    cursor: pointer;
 }
 
 .importantDay{

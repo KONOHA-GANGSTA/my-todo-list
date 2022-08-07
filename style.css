@@ -12,6 +12,7 @@
     padding-right: 3em;
     font-family:Georgia, 'Times New Roman', Times, serif;
     border: 5px solid black;
+    cursor: pointer;
 }
 
 .strip div:hover{
@@ -19,4 +20,5 @@
     color: black;
     border: 5px solid black;
     font-family:Georgia, 'Times New Roman', Times, serif;
+    cursor: pointer;
 }
