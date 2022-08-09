@@ -109,7 +109,7 @@ function filterTodaysTask(){
             element.style.display="";
         else element.style.display="none";
         if(getFilterParams().includes("UNDONE") & element.classList.contains("done")) element.style.display="none";
-        else if(getFilterParams().includes("UNDONE") & element.style.display=="none")
+        else if(getFilterParams().includes("UNDONE") & element.style.display =="none" & (getFilterParams().includes(element.querySelector(".importanceMark").innerText.slice(12,44)) | getFilterParams().length == 1))
         element.style.display="";
     })
 }
